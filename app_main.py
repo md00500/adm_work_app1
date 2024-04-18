@@ -1,12 +1,12 @@
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1' 
+#os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1' 
 from flask import Flask, request, redirect, render_template, flash
 from werkzeug.utils import secure_filename
 from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.preprocessing import image
 import numpy as np
 
-classes = ["一般画像","ドキュメント画像"]
+#classes = ["一般画像","ドキュメント画像"]
 image_size = 50
 
 UPLOAD_FOLDER = "./uploads"
@@ -18,7 +18,8 @@ app.secret_key = "12345"
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 #学習済みモデルをロード
-model = load_model('./model.keras', compile=False)
+#model = load_model('./model.keras', compile=False)
+model = load_model('./model.keras')
 
 # request.method == 'POST'であるとき、これから後に続くコードが実行されます。
 @app.route('/', methods=['GET', 'POST'])
