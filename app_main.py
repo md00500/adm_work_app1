@@ -18,8 +18,8 @@ app.secret_key = "12345"
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 #学習済みモデルをロード
-#model = load_model('./model.keras', compile=False)
-model = load_model('./model.keras')
+model = load_model('./model.keras', compile=False)
+#model = load_model('./model.keras')
 
 # request.method == 'POST'であるとき、これから後に続くコードが実行されます。
 @app.route('/', methods=['GET', 'POST'])
